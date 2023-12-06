@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Algo1</title>
+	<link href="/static/img/logo/Original algo.png" rel="shortcut icon"/>
+    <!-- this is bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <!-- this is link css link -->
+    <link rel="stylesheet" href="{% static '/css/loginform.css/' %}">
+</head>
+<body>
+
+    <section class="vh-100">
+        <div class="container h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-6 col-lg-5 col-xl-4">
+                    <img src="{% static '/images/secure-login.gif/' %}" class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-6 col-lg-7 col-xl-8">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger mt-3" id="alert">
+                                <strong>Warning</strong> {{message}}</a>.
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                  
+                    <form action="/register/" method="post">
+                        {% csrf_token %}
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center fw-bold mx-3 mb-0 fs-1">Registration </p>
+                        </div>
+
+                        <!-- First name and Last name input in the same row -->
+                        <div class="row mb-2">
+                            <div class="col-md-6">
+                                <div class="form-outline">
+                                    <label class="form-label fw-bold fs-4 text-capitalize" for="form3Example3" >First name</label>
+                                    <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Enter first name"  name="f_name" required/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-outline">
+                                    <label class="form-label fw-bold fs-4 text-capitalize" for="form3Example4" >Last name</label>
+                                    <input type="text" id="form3Example4" class="form-control form-control-lg" placeholder="Enter last name" name="l_name" required/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email and Phone number input in the same row -->
+                        <div class="row mb-2">
+                          <div class="col-md-6">
+                            <div class="form-outline">
+                                <label class="form-label fw-bold fs-4 text-capitalize" for="form3Example4" >Username</label>
+                                <input type="text" id="form3Example4" class="form-control form-control-lg" placeholder="Enter last name" name="username" required/>
+                            </div>
+                        </div>
+                            <div class="col-md-6">
+                                <div class="form-outline">
+                                    <label class="form-label fw-bold fs-4 text-capitalize" for="form3Example4" >Email </label>
+                                    <input type="email" id="form3Example4" class="form-control form-control-lg" placeholder="Enter email" name="email" required/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password and Confirm Password input -->
+                        
+                        <div class="form-outline mb-2">
+                            <label class="form-label fw-bold fs-4 text-capitalize" for="form3Example4" >Password </label>
+                            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter password" name="password" required/>
+                        </div>
+
+                        <div class="form-outline mb-2">
+                            <label class="form-label fw-bold fs-4 text-capitalize" for="form3Example4" >Confirm Password </label>
+                            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter confirm password" name="re_password" required/>
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2 d-flex justify-content-between my-2">
+                            <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">signup</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0 fs-7">I have an account!<a href="/login/" class="link-danger fw-bold text-capitalize fs-7 mx-2">Login</a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- this is bootstrap script link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const container = document.getElementById('container');
+
+        const box = document.getElementById('alert')
+
+
+        // Function to close the alert after 3 seconds
+        function closeAlert() {
+          box.style.display = 'none';
+        }
+
+        // Set a timeout to call the closeAlert function after 3000 milliseconds (3 seconds)
+        setTimeout(closeAlert, 2000);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Algo1</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Cryptocurrency Landing Page Template">
+	<meta name="keywords" content="cryptocurrency, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="/static/img/logo/Original algo.png" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	
+
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+        <style>
+            h1 ,h4 {
+                font-family:sans-serif;
+                font-size: 20px;
+            }
+            li{
+                
+                list-style:none;
+            } 
+            .hero {
+                width: fit-content;
+            }
+           .hero p {
+                border:1px soild #000;
+                text-align: start;
+                
+                transition: all 1s ease-in-out;
+                transform: scale(0.8);
+                font-size: 20px;
+            }
+            .hero p:hover{
+                transform: scale(0.83);
+                background:linear-gradient(to right ,#3396b725,#3e31cd21);
+            }
+
+            p strong{
+                font-weight:800 ;
+                color: #000;
+            }
+            .pheaning-1{
+                text-align: start;
+            }
+        </style>
+	
+
+</head>
+<body>
+	<!-- Page Preloder -->
+
+	<header class="header-section clearfix">
+		<div class="container-fluid">
+			<a href="/" class="site-logo">
+				<img src="/static/img/logo/Transparent algo.png" alt="" width="70vh">
+			</a>
+			<div class="responsive-bar"><i class="fa fa-bars"></i></div>
+			<a href="" class="user"><i class="fa fa-user"></i></a>
+			{% if request.user.is_authenticated %}
+			<a href="/logout/" class="site-btn">Logout</a>
+			{% else %}
+			<a href="/login/" class="site-btn">Login</a>
+			{% endif %}
+			<nav class="main-menu">
+				<ul class="menu-list">
+
+					<li><a href="/">Home</a></li>
+					<li><a href="/aboutus/">About</a></li>
+					<li><a href="/contactus/">Contact</a></li>
+
+					{% if request.user.is_authenticated %}
+						<li><a href="/active_subscription/">My Subscription</a></li>
+					{% else %}
+						<li><a href="/questions/">fAQs</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Page info section -->
+	<section class="page-info-section ">
+		<div class="container">
+			<h2>Terms and Conditions</h2>
+			<div class="site-beradcamb">
+				<a href="/">Home</a>
+				<span><i class="fa fa-angle-right"></i>Terms and Conditions</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page info end -->
+	
+
+    <section class=" container ">
+        <div class=" container d-flex align-items-center flex-column justify-content-center ">
+        <h1 class=" text-dark my-5 fs-1">Terms and Conditions</h1>
+        <div class="hero container mx-5">
+           <h4>Terms and Conditions</h4>
+            <p><span><strong>1. Acceptance of Terms:</strong>By using Algo1 Software ("the Service"), you agree to comply with and be bound by these terms and conditions. If you do not agree with any part of these terms, please do not use the Service.</span></p>
+
+            <p><span>
+                 <strong>
+                    2. Privacy Policy:</strong>Your use of the Service is also governed by our Privacy Policy, which can be found [<a href="">https://algo1.co.in/privacy-policy</a>]. Please review the Privacy Policy to understand our data handling practices.</span>
+                </p>
+            <p><span> 
+                 <strong>3. Registration and Accounts:</strong>To use certain features of the Service, you may be required to register for an account. You are responsible for maintaining the confidentiality of your account information and agree to notify us immediately of any unauthorized use.</span></p>
+            <p><span> 
+                 <strong>4. Minimum Investment and Subscriptions:</strong>To access the Service, a minimum investment of ₹16,000 is required. Subscription plans are available on a monthly, quarterly, and annual basis, with varying fees based on your chosen tier.</span></p>
+            <p><span> 
+                 <strong>5. Return on Investment (ROI):</strong>ROI figures are projected and may vary based on market conditions. Algo1 Software does not guarantee or promise specific investment returns, and users are advised to exercise due diligence in their investments.
+
+                </span></p>
+            <p><span> 
+                 <strong>6. User Conduct:</strong>You agree not to engage in any activity that disrupts or interferes with the Service, including but not limited to hacking, data mining, or uploading malicious code.
+
+
+
+                </span></p>
+            <p><span> 
+                 <strong>7. Intellectual Property:</strong>
+                 The Service and its original content, features, and functionality are owned by Algo1 Software and protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.
+                </span></p>
+                
+            <p><span> 
+                 <strong>8. Disclaimers:</strong>
+                 
+                Algo1 Software is provided "as is" and without warranties of any kind. We are not liable for any investment losses or damages incurred.
+                </span></p>
+            <p><span> 
+                 <strong>9. Limitation of Liability:</strong>
+                 
+                 To the fullest extent permitted by law, Algo1 Software shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly.
+                </span></p>
+            <p><span> 
+                 <strong>10. Governing Law:</strong>
+                 
+                 These terms and conditions are governed by and construed in accordance with the laws of [Indian Jurisdiction].
+                </span></p>
+            <p><span> 
+                 <strong>11. Changes to Terms:</strong>
+                 
+                 We reserve the right to modify or replace these terms and conditions at any time. Changes will be effective immediately upon posting.
+
+
+                </span></p>
+            <p><span> 
+                 <strong>12. Contact Us:</strong>             
+                    For any questions or concerns regarding these terms and conditions, please contact us at [<a href="">support@algo1.co.in</a>]
+                </span></p>
+            <p><span> 
+                This is a basic outline and should be customized and reviewed by a legal professional to ensure it complies with applicable laws and accurately reflects your business practices and legal obligations.
+                </span></p>
+                
+
+
+            </div>
+        </div>
+    
+    </section>
+
+
+    <section class=" container  ">
+        <div class=" container d-flex align-items-center flex-column justify-content-center ">
+        <h1 class=" text-dark my-5 fs-1">Refund Policy</h1>
+        <div class="hero container mx-5 text-start">
+            
+            <h4 class="pheaning-1 pb-3"><strong>1. Subscription Refunds:</strong></h4>
+            <ul class=" mx-4">
+            <li class="mx-3">We offer refunds for subscriptions within [number] days of purchase.</li>
+            <li class="mx-3">To be eligible for a refund, your subscription must be [unused/unused beyond a certain time period/unused after a specific condition].
+            </li>
+            <li class="mx-3">Refunds will be processed to the original payment method.
+            </li>
+            <li class="mx-3">If you request a refund after the eligible period, it will not be granted.
+            </li>
+           </ul>
+
+
+           <h4 class="pheaning-1 pb-3 pt-3"><strong>2. Minimum Investment Refunds:</strong></h4>
+           <ul class=" mx-4">
+           <li class="mx-3">The minimum investment required to start using Algo1 Software, ₹16,000, is non-refundable. This amount will be deposited into your Demat account.</li>
+          
+          </ul>  
+          
+          
+           <h4 class="pheaning-1 pb-3 pt-3"><strong>3. Return on Investment (ROI):</strong></h4>
+           <ul class=" mx-4">
+           <li class=" mx-3">Please note that ROI figures are projections and may vary based on market conditions and individual trading strategies. We do not guarantee or promise specific investment returns.</li>
+          
+          </ul>   
+           <h4 class="pheaning-1 pb-3 pt-3"><strong>4. Contact Us:</strong></h4>
+           <ul class=" mx-4">
+           <li class=" mx-3">To request a refund or if you have any questions about our refund policy, please contact us at [<a href="">support@algo1.co.in</a>].</li>
+          
+          </ul> 
+          <br>  
+          <per class=" text-start my-4">This is a basic outline for a refund policy. Depending on your specific business model and legal requirements, you may need to make adjustments or consult with legal professionals to ensure compliance with relevant laws and regulations.</per>
+
+        </div>
+        </div>
+    
+    </section>
+	
+
+
+	
+
+
+
+
+
+	
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="row spad">
+				<div class="col-md-6 col-lg-3 footer-widget">
+					<a href="/" class="site-logo">
+						<img src="/static/img/logo/Transparent algo.png" alt="" width="70vh">
+					</a>
+					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum.</p>
+					<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+				</div>
+				<div class="col-md-6 col-lg-2 offset-lg-1 footer-widget">
+					<h5 class="widget-title">Resources</h5>
+					<ul>
+						<li><a href="/privacy/">Privacy policy</a></li>
+						<li><a href="/terms/">Term and Conditions</a></li>
+						<li><a href="/contactus/">Contact</a></li>
+						<li><a href="/questions/">FAQ</a></li>
+						<li><a href="/aboutus/">About us</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-md-6 col-lg-3 footer-widget pl-lg-5 pl-3">
+					<h5 class="widget-title">Follow Us</h5>
+					<div class="social">
+						<a href="" class="facebook"><i class="fa fa-facebook"></i></a>
+						<a href="" class="google"><i class="fa fa-google-plus"></i></a>
+						<a href="" class="instagram"><i class="fa fa-instagram"></i></a>
+						<a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="row">
+					<div class="col-lg-4 store-links text-center text-lg-left pb-3 pb-lg-0">
+						<a href=""><img src="/static/img/appstore.png" alt="" class="mr-2"></a>
+						<a href=""><img src="/static/img/playstore.png" alt=""></a>
+					</div>
+					<div class="col-lg-8 text-center text-lg-right">
+						<ul class="footer-nav">
+							<li><a href="/">DPA</a></li>
+							<li><a href="/terms/">Terms of Use</a></li>
+							<li><a href="/privacy/">Privacy Policy </a></li>
+							<li><a href="">support@company.com</a></li>
+							<li><a href="">(123) 456-7890</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %} "></script>
+	<script src="{% static 'js/owl.carousel.min.js' %} "></script>
+	<script src="{% static 'js/main.js' %} "></script>
+	<script src="https://kit.fontawesome.com/5fd4d98e50.js" crossorigin="anonymous"></script>
+
+	<script src="		https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+	
+</body>
+</html>

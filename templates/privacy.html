@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Algo1</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Cryptocurrency Landing Page Template">
+	<meta name="keywords" content="cryptocurrency, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="/static/img/logo/Original algo.png" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+        <style> 
+            .hero {
+                width: fit-content;
+            }
+           .hero p {
+                border:1px soild #000;
+                text-align: start;
+                cursor: pointer;
+                transition: all 1s ease-in-out;
+                transform: scale(0.8);
+                font-size: 20px;
+            }
+            .hero p:hover{
+                transform: scale(0.83);
+                background:linear-gradient(to right ,#3396b725,#3e31cd21);
+            }
+
+            p strong{
+                font-weight:800 ;
+                color: #000;
+            }
+        </style>
+	
+
+</head>
+<body>
+
+	<!-- Header section -->
+	<header class="header-section clearfix">
+		<div class="container-fluid">
+			<a href="/" class="site-logo">
+				<img src="/static/img/logo/Transparent algo.png" alt="" width="70vh">
+			</a>
+			<div class="responsive-bar"><i class="fa fa-bars"></i></div>
+			<a href="" class="user"><i class="fa fa-user"></i></a>
+			{% if request.user.is_authenticated %}
+			<a href="/logout/" class="site-btn">Logout</a>
+			{% else %}
+			<a href="/login/" class="site-btn">Login</a>
+			{% endif %}
+			<nav class="main-menu">
+				<ul class="menu-list">
+
+					<li><a href="/">Home</a></li>
+					<li><a href="/aboutus/">About</a></li>
+					<li><a href="/contactus/">Contact</a></li>
+
+					{% if request.user.is_authenticated %}
+						<li><a href="/active_subscription/">My Subscription</a></li>
+					{% else %}
+						<li><a href="/questions/">fAQs</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Page info section -->
+	<section class="page-info-section ">
+		<div class="container">
+			<h2>Privacy policy</h2>
+			<div class="site-beradcamb">
+				<a href="/">Home</a>
+				<span><i class="fa fa-angle-right"></i> Privacy policy</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page info end -->
+	
+
+    <section class=" ">
+        <div class=" container d-flex align-items-center flex-column justify-content-center gap-5">
+        <h1 class=" text-dark my-4">Privacy policy</h1>
+        <div class="hero container">
+           
+            <p><span>At Algo1 Software, we are committed to protecting your privacy and ensuring the security of your personal information. We have outlined our privacy policy to provide you with clear insights into how we handle data and information. By using our services and software, you consent to the practices described in this policy.</span></p>
+
+            <p><span>
+                 <strong>
+                    Collection of Information:</strong> We collect and use personal information to provide our financial services effectively. This may include your name, contact details, and financial information. We assure you that your data is handled with the utmost care and is not shared with unauthorized parties.</span>
+                </p>
+            <p><span> 
+                 <strong> Use of Information:</strong>The information we collect is used to enhance your experience and provide you with the best possible service. We may use your data for account management, communication, and service improvements. Your information will not be used for any other purposes without your consent.</span></p>
+            <p><span> 
+                 <strong>Security Measures:</strong>We employ advanced security measures to safeguard your data from unauthorized access, disclosure, or alteration. Our commitment to data protection includes encryption, firewalls, and regular security audits.</span></p>
+            <p><span> 
+                 <strong> Third-Party Disclosure:</strong>We do not sell, trade, or transfer your personal information to third parties. Your data is confidential and only used for the purposes described in this policy.
+
+                </span></p>
+            <p><span> 
+                 <strong> Cookie Usage:</strong>We may use cookies to enhance your online experience. Cookies are small text files stored on your device that help us improve the functionality and usability of our software. You have the option to disable cookies in your browser settings, but this may affect your ability to use certain features.
+
+                </span></p>
+            <p><span> 
+                 <strong>Changes to Privacy Policy:</strong>
+                 Algo1 Software reserves the right to make changes to this privacy policy. Any modifications will be reflected on this page. We recommend checking this policy periodically to stay informed about how we protect your data.
+
+                </span></p>
+                
+            <p><span> 
+                 <strong>Contact Us:</strong>
+                 If you have any questions or concerns regarding your privacy or our data practices, please contact us At [<a href="">support@algo1.co.in</a>]. 
+                <br>
+                 This privacy statement is a basic outline and should be customized to align with your specific data-handling practices and legal requirements. Consult with a legal professional to ensure compliance with applicable data protection regulations.
+
+                </span></p>
+                
+
+
+            </div>
+        </div>
+    </div>
+    </section>
+	
+
+
+	
+
+
+
+
+
+	
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="row spad">
+				<div class="col-md-6 col-lg-3 footer-widget">
+					<a href="/" class="site-logo">
+						<img src="/static/img/logo/Transparent algo.png" alt="" width="70vh">
+					</a>
+					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum.</p>
+					<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+				</div>
+				<div class="col-md-6 col-lg-2 offset-lg-1 footer-widget">
+					<h5 class="widget-title">Resources</h5>
+					<ul>
+						<li><a href="/privacy/">Privacy policy</a></li>
+						<li><a href="/terms/">Term and Conditions</a></li>
+						<li><a href="/contactus/">Contact</a></li>
+						<li><a href="/questions/">FAQ</a></li>
+						<li><a href="/aboutus/">About us</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-md-6 col-lg-3 footer-widget pl-lg-5 pl-3">
+					<h5 class="widget-title">Follow Us</h5>
+					<div class="social">
+						<a href="" class="facebook"><i class="fa fa-facebook"></i></a>
+						<a href="" class="google"><i class="fa fa-google-plus"></i></a>
+						<a href="" class="instagram"><i class="fa fa-instagram"></i></a>
+						<a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="row">
+					<div class="col-lg-4 store-links text-center text-lg-left pb-3 pb-lg-0">
+						<a href=""><img src="/static/img/appstore.png" alt="" class="mr-2"></a>
+						<a href=""><img src="/static/img/playstore.png" alt=""></a>
+					</div>
+					<div class="col-lg-8 text-center text-lg-right">
+						<ul class="footer-nav">
+							<li><a href="/">DPA</a></li>
+							<li><a href="/terms/">Terms of Use</a></li>
+							<li><a href="/privacy/">Privacy Policy </a></li>
+							<li><a href="">support@company.com</a></li>
+							<li><a href="">(123) 456-7890</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %} "></script>
+	<script src="{% static 'js/owl.carousel.min.js' %} "></script>
+	<script src="{% static 'js/main.js' %} "></script>
+	<script src="https://kit.fontawesome.com/5fd4d98e50.js" crossorigin="anonymous"></script>
+
+	<script src="		https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+	
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+<h2>Membership Plans</h2>
+
+{% for plan in plans %}
+    <div>
+        <h3>{{ plan.name }}</h3>
+        <p>{{ plan.description }}</p>
+        <p>Price Monthly: ${{ plan.price_monthly }}</p>
+        <p>Price Quarterly: ${{ plan.price_quarterly }}</p>
+        <p>Price Yearly: ${{ plan.price_yearly }}</p>
+        <a href="{% url 'subscribe' plan.id %}">Subscribe</a>
+    </div>
+{% endfor %}

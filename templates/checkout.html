@@ -1,0 +1,32 @@
+<h2>Checkout</h2>
+
+<h3>{{error}}</h3>
+
+<p>Choose your subscription plan on {{plan.name}}:</p>
+
+<form method="post" action="{% url 'subscribe' plan.id %}">
+    {% csrf_token %}
+
+    <input type="hidden" name = "plan_name" value="{{plan.name}}">
+    <input type="hidden" name = "subscription_period" >
+
+
+    <select name="subscription_period">
+        <option value="monthly" selected>Monthly - ${{ plan.price_monthly }}/month</option>
+        <option value="quarterly">Quarterly - ${{ plan.price_quarterly }}/quarter</option>
+        <option value="yearly">Yearly - ${{ plan.price_yearly }}/year</option>
+    </select>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Update hidden input when user selects an option
+            $('#subscription_period_select').change(function () {
+                $('input[name="subscription_period"]').val($(this).val());
+            });
+        });
+    </script>
+
+    <button type="submit">Complete Purchase</button>
+</form>
+

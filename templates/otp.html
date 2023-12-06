@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+
+html {
+  background-color: rgb(120, 232, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80vw; /* Adjust the width for smaller screens */
+  max-width: 350px;
+  height: 80vh;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 24px 10px; /* Adjust padding for smaller screens */
+}
+
+img {
+  width: 100%;
+  max-width: 100%; /* Make sure the image is responsive */
+  height: auto;
+  margin: 16px 0;
+}
+
+title {
+  font-size: 18px; /* Adjust font size for smaller screens */
+}
+
+p {
+  font-size: 12px; /* Adjust font size for smaller screens */
+  width: 80%; /* Adjust width for smaller screens */
+}
+svg {
+    margin: 16px 0;
+  }
+
+  title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  p {
+    color: #a3a3a3;
+    font-size: 14px;
+    width: 200px;
+    
+  }
+input {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  border: none;
+  border-bottom: 1.5px solid #d2d2d2;
+  margin: 0 5px;
+}
+
+input:focus {
+    border-bottom: 1.5px solid deepskyblue;
+    outline: none;
+  }
+
+button {
+  width: 80%;
+  letter-spacing: 2px;
+  margin-top: 24px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+}
+
+img {
+    width: 100%;
+    max-width: 350px; /* Adjust the max-width as needed */
+    height: auto;
+    margin: 16px 0;
+  }
+  
+/* Media query for screens under 300px */
+@media only screen and (max-width: 300px) {
+  section {
+    width: 90vw; /* Adjust the width for even smaller screens */
+    padding: 24px 5px; /* Adjust padding for even smaller screens */
+  }
+
+  input {
+    width: 20px;
+    height: 20px;
+    margin: 0 4px;
+  }
+
+  button {
+    width: 90%;
+    padding: 8px;
+  }
+}
+.alert {
+    padding: 20px;
+    background-color: #a25a4e;
+    color: white;
+    border-radius: 5px;
+    width: 50%;
+    margin: 0px 0px 10px 0px;
+
+    height: 0vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+    </style>
+</head>
+<body>
+    <section>
+        <div class="title">Enter OTP</div>
+        {% if messages %}
+        {% for message in messages %}
+          <div class="alert" >
+            <p style="display: flex; align-items: center; justify-content: center; color:white;">{{message}}</p>
+            <span class="closebtn" style="display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        {% endfor %}
+      {% endif %}
+<img src="/static/images/otp.gif" alt="">
+        <div class="title">Verification Code</div>
+        <p>We have sent a verification code
+          to <span style="font-weight: bold; color: #2e2828;">{{email}}</span></p>
+          <div id='inputs'>
+              <form action="/otpvarification/" method="post">
+                {% csrf_token %}
+              
+                <input id='input1' type='text' maxLength="1" name="first"/>
+                <input id='input2' type='text' maxLength="1" name="second"/>
+                <input id='input3' type='text' maxLength="1" name="thired"/>
+                <input id='input4' type='text' maxLength="1" name="forth"/>
+                <input id='input5' type='text' maxLength="1" name="fifth"/>
+                <input id='input6' type='text' maxLength="1" name="sixth"/>
+
+                <input type="hidden" name="user" value="{{user}}">
+                
+                
+                <button type="submit">Submit</button>
+              </form>
+              </div>
+      </section>
+
+
+
+      <script>
+
+
+const inputs = ["input1", "input2", "input3", "input4", "input5", "input6"];
+
+inputs.map((id) => {
+  const input = document.getElementById(id);
+  addListener(input);
+});
+
+function addListener(input) {
+  input.addEventListener("keyup", () => {
+    const code = parseInt(input.value);
+    if (code >= 0 && code <= 9) {
+      const n = input.nextElementSibling;
+      if (n) n.focus();
+    } else {
+      input.value = "";
+    }
+
+    const key = event.key; // const {key} = event; ES6+
+    if (key === "Backspace" || key === "Delete") {
+      const prev = input.previousElementSibling;
+      if (prev) prev.focus();
+    }
+  });
+}
+      </script>
+</body>
+</html>

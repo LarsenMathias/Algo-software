@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Algo1</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Cryptocurrency Landing Page Template">
+	<meta name="keywords" content="cryptocurrency, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="/static/img/logo/Original algo.png" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+	<!--Animate On Scroll Library  -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        
+
+    
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<style>
+		.toggle {
+		margin-top: 2rem;
+		color: hsl(234, 14%, 74%);
+		display: flex;
+		align-items: center;
+		}
+		.toggle-btn {
+		margin: 0 1rem;
+		}
+		.checkbox {
+		display: none;
+		}
+
+		.sub {
+		background: linear-gradient(
+			135deg,
+			rgba(163, 168, 240, 1) 0%,
+			rgba(105, 111, 221, 1) 100%
+		);
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		height: 1.6rem;
+		width: 3.3rem;
+		border-radius: 1.6rem;
+		padding: 0.3rem;
+		}
+		.circle {
+		background-color: #fff;
+		height: 1.4rem;
+		width: 1.4rem;
+		border-radius: 50%;
+		}
+		.checkbox:checked + .sub {
+		justify-content: flex-end;
+		}
+
+		.cards {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		.card {
+		background: #fff;
+		color: hsl(233, 13%, 49%);
+		border-radius: 0.8rem;
+		}
+
+		.cards .card.active {
+		background: linear-gradient(
+			135deg,
+			rgba(163, 168, 240, 1) 0%,
+			rgba(105, 111, 221, 1) 100%
+		);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		transform: scale(1.1);
+		z-index: 1;
+		}
+
+		.ul {
+		margin: 2.6rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+
+		}
+
+		.ul li {
+		list-style-type: none;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		padding: 1rem 0;
+		}
+
+		.ul li.price {
+		font-size: 3rem;
+		color: hsl(232, 13%, 33%);
+		padding-bottom: 2rem;
+		}
+
+		.shadow {
+		box-shadow: -5px 5px 15px 1px rgba(0, 0, 0, 0.1);
+		}
+
+		.card.active .price {
+		color: #fff;
+		}
+
+		.btn {
+		margin-top: 1rem;
+		height: 2.6rem;
+		width: 13.3rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 4px;
+		background: linear-gradient(
+			135deg,
+			rgba(163, 168, 240, 1) 0%,
+			rgba(105, 111, 221, 1) 100%
+		);
+		color: #fff;
+		outline: none;
+		border: 0;
+		font-weight: bold;
+		}
+		.active-btn {
+		background: #fff;
+		color: hsl(237, 63%, 64%);
+		}
+		.bottom-bar {
+		border-bottom: 2px solid hsla(240, 8%, 85%, 0.582);
+		}
+		.card.active .bottom-bar {
+		border-bottom: 2px solid hsla(240, 8%, 85%, 0.253);
+		}
+		.pack {
+		font-size: 1.1rem;
+		}
+
+		@media (max-width: 280px) {
+		.ul {
+			margin: 1rem;
+		}
+		h1 {
+			font-size: 1.2rem;
+		}
+		.toggle {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			height: 80px;
+		}
+		.cards {
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.card {
+			transform: scale(0.8);
+			margin-bottom: 1rem;
+		}
+		.cards .card.active {
+			transform: scale(0.8);
+		}
+		}
+
+		@media (min-width: 280px) and (max-width: 320px) {
+		.ul {
+			margin: 20px;
+		}
+		.cards {
+			display: flex;
+			flex-direction: column;
+		}
+		.card {
+			margin-bottom: 1rem;
+		}
+		.cards .card.active {
+			transform: scale(1);
+		}
+		}
+
+		@media (min-width: 320px) and (max-width: 414px) {
+		.cards {
+			display: flex;
+			flex-direction: column;
+		}
+		.card {
+			margin-bottom: 1rem;
+		}
+		.cards .card.active {
+			transform: scale(1);
+		}
+		}
+		@media (min-width: 414px) and (max-width: 768px) {
+		.card {
+			margin-bottom: 1rem;
+			margin-right: 1rem;
+		}
+		.cards .card.active {
+			transform: scale(1);
+		}
+		}
+		@media (min-width: 768px) and (max-width: 1046px) {
+		.cards {
+			display: flex;
+		}
+		.card {
+			margin-bottom: 1rem;
+			margin-right: 1rem;
+		}
+		.cards .card.active {
+			transform: scale(1);
+		}
+		}
+
+
+		.card {
+			background: #fff;
+			color: hsl(233, 13%, 49%);
+			border-radius: 0.8rem;
+			cursor: pointer;
+			transition: all 0.5s ease-in-out;
+		  }
+		  .card:hover{
+
+			color: white;
+			background: linear-gradient(
+				135deg,
+				rgba(163, 168, 240, 1) 0%,
+				rgba(105, 111, 221, 1) 100%
+			  ); ;
+			  transform: scale(1.1);
+		  }
+
+				/*  this is cookies-card*/
+		.cookie_card-wrap {
+			background-color: #e7e7e7;
+			border-radius: 15px;
+			bottom: 30px;
+			left: 30px;
+			max-width: calc(100% - 60px);
+			padding: 30px;
+			position: fixed;
+			width: 475px;
+			z-index: 99999;
+		}
+
+		.cookie_card-btn {
+			text-wrap: nowrap;
+			border-radius: 15px;
+			color: #151515;
+			cursor: pointer;
+			flex: 2;
+			flex-grow: 1;
+			font-family: Manrope,Montserrat,sans-serif;
+			font-size: 18px;
+			font-weight: 600;
+			letter-spacing: 1.35px;
+			line-height: 30px;
+			transition: all .25s ease;  
+			padding: 10px 20px;   
+		}
+
+
+		.cookie_card-btn-allow {
+			background: #151515;
+			border-color: #151515;
+			color: #fff;
+		}
+
+		.cookie_card-close {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background:transparent;
+
+			border: none
+		}
+
+				#note {
+			position: relative;
+			z-index: 101;
+			top: 0;
+			left: 0;
+			right: 0;
+			background: #fde073;
+			text-align: center;
+			line-height: 2.5;
+			overflow: hidden; 
+			-webkit-box-shadow: 0 0 5px black;
+			-moz-box-shadow:    0 0 5px black;
+			box-shadow:         0 0 5px black;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.fa-xmark{
+			position: absolute;
+			right:10px;
+			cursor: pointer;
+		}
+
+		#costom{
+			text-wrap: nowrap;
+			background-color: var(--color-white);
+			border-radius: 15px;
+			color: #151515;
+			cursor: pointer;
+			flex: 2;
+			flex-grow: 1;
+			font-family: Manrope,Montserrat,sans-serif;
+			font-size: 18px;
+			font-weight: 600;
+			letter-spacing: -.36px;
+			line-height: 30px;
+			padding: 9px 16px 11px;
+			transition: all .25s ease;
+			background-color: black;
+			color: white;
+
+			opacity: 1;
+		}
+
+
+
+		/* Add this CSS to your existing stylesheet */
+		.cards .card:hover {
+		background-color: #fff; /* Change background color on hover to white */
+		color: #ffffff; /* Change text color on hover to black */
+		}
+
+		.cards .card:hover .ul .pack,
+		.cards .card:hover .ul .price,
+		.cards .card:hover .ul .desc {
+		color: #ffffff; /* Change text color of pack, price, and description on hover to black */
+		}
+
+
+
+
+	</Style>
+</head>
+<body>
+	<!-- Page Preloder -->
+	<!-- <div id="preloder">
+		<div class="loader"></div>
+	</div> -->
+
+{% if clime_membership %}
+	<div id="cookie_card" class="cookie_card-wrap">	
+		<button role="button" aria-label="Close" type="button" class="cookie_card-close " id="cookie_card-close" onclick="closeCards()">
+			<i class="fa-solid fa-xmark " style="cursor:pointer"></i>
+		</button>
+		<p class="cookie_card-title text-dark fw-bold" style="font-weight: 900; text-align: center">
+			{{clime_membership}}</p>
+		<p class="cookie_card-text mt-10">Congratulations! You've been selected for an exclusive free subscription. Enjoy premium features, ad-free browsing, and unlimited access to our top-notch content. </p>
+		<!-- <div><img scr="./static/images/free.gif" ></div> -->
+		<div class="cookie_card-group mt-40 " style="display: flex; align-items: center; justify-content: center">
+		
+			<button id="costom"  onclick="window.location.href='/freetrile/{{request.user.id}}/' ">claim</button>
+		</div>
+	</div>
+{% endif %}
+
+	{% if membership_expired %}
+		<div id="cookie_card" class="cookie_card-wrap">
+			<button role="button" aria-label="Close" type="button" class="cookie_card-close " id="cookie_card-close" onclick="closeCards()">
+				<i class="fa-solid fa-xmark " style="cursor:pointer"></i>
+			</button>
+			<p class="cookie_card-title text-dark fw-bold" style="font-weight: 900;">{{ membership_expired }}</p>
+			<p class="cookie_card-text mt-10">Don't miss out on premium benefits! Your subscription is expiring soon. Renew now to continue enjoying ad-free content, exclusive features, and uninterrupted access. </p>
+
+			<!-- <div><img scr="./static/images/free.gif" ></div> -->
+			<div class="cookie_card-group mt-40 " style="display: flex; align-items: center; justify-content: center">
+			
+				<button id="costom" onclick="window.location.href='/allplans/' ">claim</button>
+			</div>
+		</div>
+	{% endif %}
+
+<!-- 
+	{% if messages.error %}
+
+	<div id="note" style="display:flex;align-item:center;align-items: center;justify-content: center; text-align: center; width: 100%">
+		<p> {{messages.error}} </p>
+		<i class="fa-solid fa-xmark mark-icon" onclick="removenotification()"></i>
+		</div>
+  	{% endif %} -->
+	
+	{% if messages %}
+		{% for message in messages %}
+	  <div id="note" style="display:flex;align-item:center;align-items: center;justify-content: center; text-align: center; width: 100%">
+		<p> {{message}} </p>
+		<i class="fa-solid fa-xmark mark-icon" onclick="removenotification()"></i>
+		</div>
+		{% endfor %}
+	{% endif %}
+	<!-- Header section -->
+	<header class="header-section clearfix">
+		<div class="container-fluid">
+			<a href="/" class="site-logo">
+				<img src="/static/img/logo/Transparent algo.png" alt="" width="70vh">
+			</a>
+			<div class="responsive-bar"><i class="fa fa-bars"></i></div>
+			<a href="" class="user"><i class="fa fa-user"></i></a>
+			{% if request.user.is_authenticated %}
+			<a href="/logout/" class="site-btn">Logout</a>
+			{% else %}
+			<a href="/login/" class="site-btn">Login</a>
+			{% endif %}
+			<nav class="main-menu">
+				<ul class="menu-list">
+
+					<li><a href="/">Home</a></li>
+					<li><a href="/aboutus/">About</a></li>
+					<li><a href="/contactus/">Contact</a></li>
+
+					{% if request.user.is_authenticated %}
+						<li><a href="/active_subscription/">My Subscription</a></li>
+					{% else %}
+						<li><a href="/questions/">fAQs</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Hero section -->
+	<section class="hero-section">
+		<div class="container">
+			<div class="row flex-sm-column flex-md-row flex-lg-row justify-content-lg-between">
+				<div class="col-md-6 hero-text">
+					<h2 class = "fs-3">Discovering Opportunities in a <br> <span> Changing Market </span></h2>
+					<!-- <h2>Invest in <span>Bitcoin</span> <br>Bitcoin Trading</h2> -->
+					<h4>Unlock Financial Success with Algo1 Software: Experience High ROI and Automated Trading with our Exclusive Subscription Plans</h4>
+					<form class="hero-subscribe-from d-flex flex-lg-row align-items-sm-center flex-column flex-md-column flex-sm-column ">
+						
+						<button class="site-btn sb-gradients my-2 mx-lg-2">Get in touch
+						</button>
+						<button class="site-btn sb-gradients my-3">lear more</button>
+					</form>
+				</div>
+				<div class="col-md-6 img-div">
+					<img src="{% static '/img/laptop.png/' %}" class="laptop-image" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- About section -->
+
+	{% for data in business_data %}
+
+		{% if forloop.counter0|divisibleby:"2" %}
+			<section class="about-section spad">
+				<div class="container container-sm container-md">
+					<div class="row  d-flex flex-sm-column flex-md-column flex-lg-row">
+						<div class="about-img col-lg-5 col-sm-10 container" data-aos="zoom-in-down">
+							<img src="{{data.image.url}}" alt="" style="border-radius: 10px;">
+						</div>
+						<div class="col-lg-6 about-text">
+							<h2>{{data.title}}</h2>
+							<h5 class=" text-center " > {{data.content}} </p>
+							<a href="" class="site-btn sb-gradients sbg-line mt-5">Get Started</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		{% else %}
+			<section class="about-section spad">
+				<div class="container container-sm container-md">
+					<div class="row d-flex flex-lg-row  flex-md-column-reverse  flex-sm-column-reverse ">
+						
+						<div class="col-lg-6 col-sm-10 about-text container">
+							<h2>{{data.title}}</h2>
+							<h5 class=" text-center"> {{data.content}} </p>
+							<a href="" class="site-btn sb-gradients sbg-line mt-5">Get Started</a>
+						</div>
+						<div class="about-img col-lg-5 col-sm-10 container" data-aos="zoom-in-down">
+							<img src="{{data.image.url}}" alt="" style="border-radius: 10px;">
+						</div>
+				</div>
+				</div>
+			</section>
+		{% endif %}
+		
+	{% endfor %}
+	<!-- About section end -->
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Process section -->
+	<section class="process-section spad">
+		<div class="container" >
+			<div class="section-title text-center">
+				<h2>Get Started With Subscription</h2>
+				<p>Start learning about Bitcoin with interactive tutorials. It’s fun, easy, and takes only a few minutes! </p>
+			</div>
+
+			<div class="container text-center">
+				<h2>{{first_plan.name}}</h2>
+				<div class="cards row" data-aos="zoom-in-down">
+
+					<div class="card shadow col-lg-3  col-md-7 mx-3">
+					  <ul class="ul">
+						<li class="pack">Monthly</li>
+						<li id="basic" class="price bottom-bar"><span style='font-size:35px; display: flex; align-items: center; justify-content: center;'>&#8377;</span>{{first_plan.price_monthly}}</li>
+
+						<div class=" mx-3 px-3 container">
+							<p class="desc">{{first_plan.desc_monthly}} </p>
+						</div>
+
+
+						<form action="/subscribe/" method="post" id="formone1">
+							{% csrf_token %}
+							<input type="hidden" id="myInputone1" name="subscription_type">
+							<input type="hidden" name="plan_name" value="{{first_plan.name}}">
+							<button class="site-btn sb-gradients my-2 mx-lg-2" type="submit" onclick="submitFormone('1', 'monthly')">Buy Now</button>
+
+						</form>
+
+
+					  </ul>
+					</div>
+
+
+					<div class="card col-lg-3 col-md-7 mx-3">
+					<!-- <div class="card active col-lg-3 col-md-7 mx-3"> -->
+					  <ul class="ul">
+						<li class="pack">Quarterly</li>
+						<li id="professional" class="price bottom-bar"><span style='font-size:35px; display: flex; align-items: center; justify-content: center;'>&#8377;</span>{{first_plan.price_quarterly}}</li>
+
+						<div class=" mx-3 px-3 container">
+							<p class="desc">{{first_plan.desc_quarterly}}</p>
+						</div>
+
+
+
+						<form action="/subscribe/" method="post" id="formtwo1">
+							{% csrf_token %}
+							<input type="hidden" id="myInputtwo1" name="subscription_type">
+							<input type="hidden" name="plan_name" value="{{first_plan.name}}">
+							<button class="site-btn sb-gradients my-2 mx-lg-2 " type="submit" onclick="submitFormtwo('1', 'quarterly')">Buy Now</button>
+							<!-- <button class="btn active-btn" type="submit" onclick="submitFormtwo('1', 'quarterly')">Buy Now</button> -->
+
+						</form>
+
+
+
+					  </ul>
+					</div>
+					<div class="card shadow col-lg-3 col-md-7 mx-3">
+					  <ul class="ul">
+						<li class="pack">Yearly</li>
+						<li d="master" class="price bottom-bar"><span style='font-size:35px; display: flex; align-items: center; justify-content: center;'>&#8377;</span>{{first_plan.price_yearly}}</li>
+
+
+						<div class=" mx-3 px-3 container">
+							<p class="desc">{{first_plan.desc_yearly}}</p>
+						</div>
+
+
+						<form action="/subscribe/" method="post" id="formthree1">
+							{% csrf_token %}
+							<input type="hidden" id="myInputthree1" name="subscription_type">
+							<input type="hidden" name="plan_name" value="{{first_plan.name}}">
+							<button class="site-btn sb-gradients my-2 mx-lg-2" type="submit" onclick="submitFormthree('1', 'yearly')">Buy Now</button>
+
+						</form>
+
+
+					  </ul>
+					</div>
+				  </div>
+				  
+			</div>
+				
+			</div>
+
+
+			<div class=" d-flex justify-content-center mt-5 ">
+				<button class=" site-btn sb-gradients my-2 mx-lg-2" onclick="window.location.href = '/allplans/' ">See more details</button>
+			</div>
+		</div>
+
+
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Fact section -->
+	<section class="fact-section gradient-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="fact">
+						<h2>60</h2>
+						<p>Support <br> Countries</p>
+						<i class="ti-basketball"></i>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="fact">
+						<h2>12K</h2>
+						<p>Transactions  <br> per hour</p>
+						<i class="ti-panel"></i>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="fact">
+						<h2>5B</h2>
+						<p>Largest <br> Transactions</p>
+						<i class="ti-stats-up"></i>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="fact">
+						<h2>240</h2>
+						<p>Years <br> of Experience</p>
+						<i class="ti-user"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Fact section end -->
+
+
+	<!-- Team section -->
+	<section class="team-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h2>Meet Our Team</h2>
+				<p>Our experts in the field of crypto currency can always help you with any of your questions!</p>
+			</div>
+		</div>
+		<div class="team-members clearfix" >
+			<!-- Team member -->
+			<div class="member" >
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="/static/img/member/1.jpg" ><img src="/static/img/member/1.jpg" style="border-radius: 50%;"></div>
+					<h2>Tom Binegar</h2>
+					<span>Business Development</span>
+				</div>
+				<div class="member-social">
+					<a href="" ><i class="fa fa-facebook"></i></a>
+					<a href="" ><i class="fa fa-linkedin"></i></a>
+					<a href="" ><i class="fa fa-twitter"></i></a>
+				</div>
+				<div class="member-info">
+					
+					<div class="member-img mf set-bg" data-setbg="/static/img/member/1.jpg"><img src="/static/img/member/1.jpg" style="border-radius: 50%;"></div>
+					<div class="member-meta">
+						<h2>Tom Binegar</h2>
+						<span>Marketing Director</span>
+					</div>
+					<p>Jackson Nash is a full-time faculty member of the Marketing and Behavioural Science Division at the Sauder School of Business at UBC. He leads the Entrepreneurship Group, in the undergraduate and graduate programs, teaching actively in both of these.</p>
+				</div>
+			</div>
+			<!-- Team member -->
+			<div class="member" >
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="/static/img/member/2.jpg" ><img src="/static/img/member/2.jpg" style="border-radius: 50%;"></div>
+					<h2>Jackson Nash</h2>
+					<span>Business Development</span>
+				</div>
+				<div class="member-social">
+					<a href=""  ><i class="fa fa-facebook"></i></a>
+					<a href=""  ><i class="fa fa-linkedin"></i></a>
+					<a href=""  ><i class="fa fa-twitter"></i></a>
+				</div>
+				<div class="member-info">
+					<div class="member-img mf set-bg" data-setbg="/static/img/member/2.jpg"><img src="/static/img/member/2.jpg" style="border-radius: 50%;"></div>
+					<div class="member-meta">
+						<h2>Jackson Nash</h2>
+						<span>Marketing Director</span>
+					</div>
+					<p>Jackson Nash is a full-time faculty member of the Marketing and Behavioural Science Division at the Sauder School of Business at UBC. He leads the Entrepreneurship Group, in the undergraduate and graduate programs, teaching actively in both of these.</p>
+				</div>
+			</div>
+			<!-- Team member -->
+			<div class="member" >
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="/static/img/member/3.jpg" ><img src="/static/img/member/3.jpg" style="border-radius: 50%;"></div>
+					<h2>Tom Binegar</h2>
+					<span>Business Development</span>
+				</div>
+				<div class="member-social">
+					<a href="" ><i class="fa fa-facebook"></i></a>
+					<a href="" ><i class="fa fa-linkedin"></i></a>
+					<a href="" ><i class="fa fa-twitter"></i></a>
+				</div>
+				<div class="member-info">
+					<div class="member-img mf set-bg" data-setbg="/static/img/member/3.jpg"><img src="/static/img/member/3.jpg" style="border-radius: 50%;"></div>
+					<div class="member-meta">
+						<h2>Aaron Ballance</h2>
+						<span>Ceo Bitcoin</span>
+					</div>
+					<p>Jackson Nash is a full-time faculty member of the Marketing and Behavioural Science Division at the Sauder School of Business at UBC. He leads the Entrepreneurship Group, in the undergraduate and graduate programs, teaching actively in both of these.</p>
+				</div>
+			</div>
+			<!-- Team member -->
+			<div class="member">
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="/static/img/member/4.jpg" ><img src="/static/img/member/4.jpg" style="border-radius: 50%;"></div>
+					<h2>Melissa Barth</h2>
+					<span>Product Manager</span>
+				</div>
+				<div class="member-social">
+					<a href="" ><i class="fa fa-facebook"></i></a>
+					<a href="" ><i class="fa fa-linkedin"></i></a>
+					<a href="" ><i class="fa fa-twitter"></i></a>
+				</div>
+				<div class="member-info">
+					<div class="member-img mf set-bg" data-setbg="/static/img/member/4.jpg"><img src="/static/img/member/4.jpg" style="border-radius: 50%;"></div>
+					<div class="member-meta">
+						<h2>Melissa Barth</h2>
+						<span>Product Manager</span>
+					</div>
+					<p>Jackson Nash is a full-time faculty member of the Marketing and Behavioural Science Division at the Sauder School of Business at UBC. He leads the Entrepreneurship Group, in the undergraduate and graduate programs, teaching actively in both of these.</p>
+				</div>
+			</div>
+			<!-- Team member -->
+			<div class="member" >
+				<div class="member-text">
+					<div class="member-img set-bg" data-setbg="/static/img/member/5.jpg" ><img src="/static/img/member/5.jpg" style="border-radius: 50%;"></div>
+					<h2>Katy Abrams</h2>
+					<span>Head of Design</span>
+				</div>
+				<div class="member-social">
+					<a href="" ><i class="fa fa-facebook"></i></a>
+					<a href="" ><i class="fa fa-linkedin"></i></a>
+					<a href="" ><i class="fa fa-twitter"></i></a>
+				</div>
+				<div class="member-info">
+					<div class="member-img mf set-bg" data-setbg="/static/img/member/5.jpg"><img src="/static/img/member/5.jpg" style="border-radius: 50%;"></div>
+					<div class="member-meta">
+						<h2>Katy Abrams</h2>
+						<span>Head of Design</span>
+					</div>
+					<p>Jackson Nash is a full-time faculty member of the Marketing and Behavioural Science Division at the Sauder School of Business at UBC. He leads the Entrepreneurship Group, in the undergraduate and graduate programs, teaching actively in both of these.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Team section -->
+
+
+	<!-- Review section -->
+	<section class="review-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 push-8">
+					<img src="{% static '/img/quote.png' %}" alt="" class="quote mb-5">
+					<div class="review-text-slider owl-carousel">
+						<div class="review-text">
+							<p>"Bitcoin is exciting because it shows how cheap it can be. Bitcoin is better than currency in that you don’t have to be physically in the same place and, of course, for large transactions, currency can get pretty inconvenient.”</p>
+						</div>
+						<div class="review-text">
+							<p>"Bitcoin is exciting because it shows how cheap it can be. Bitcoin is better than currency in that you don’t have to be physically in the same place and, of course, for large transactions, currency can get pretty inconvenient.”</p>
+						</div>
+						<div class="review-text">
+							<p>"Bitcoin is exciting because it shows how cheap it can be. Bitcoin is better than currency in that you don’t have to be physically in the same place and, of course, for large transactions, currency can get pretty inconvenient.”</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 pr-0 pull-3">
+					<div class="review-meta-slider owl-carousel pt-5">
+						<div class="author-meta">
+							<div class="author-avatar set-bg" data-setbg="/static/img/review/1.jpg"></div>
+							<div class="author-name">
+								<h4>Aaron Ballance</h4>
+								<p>Ceo Bitcoin</p>
+							</div>
+						</div>
+						<div class="author-meta">
+							<div class="author-avatar set-bg" data-setbg="/static/img/review/2.jpg"></div>
+							<div class="author-name">
+								<h4>Jackson Nash</h4>
+								<p>Head of Design</p>
+							</div>
+						</div>
+						<div class="author-meta">
+							<div class="author-avatar set-bg" data-setbg="/static/img/review/3.jpg"></div>
+							<div class="author-name">
+								<h4>Katy Abrams</h4>
+								<p>Product Manager</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Review section end -->
+
+
+	<!-- Newsletter section -->
+	<section class="newsletter-section gradient-bg">
+		<div class="container text-white">
+			<div class="row">
+				<div class="col-lg-7 newsletter-text">
+					<h2>Subscribe to our Newsletter</h2>
+					<p>Sign up for our weekly industry updates, insider perspectives and in-depth market analysis.</p>
+				</div>
+				<div class="col-lg-5 col-md-8 offset-lg-0 offset-md-2">
+					<form action = "/newsLetter/" method = "post" class="newsletter-form">
+						{% csrf_token %}
+						<input type="text" name = "email" placeholder="Enter your email">
+						<button type="submit">Get Started</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Newsletter section end -->
+
+
+
+	<!-- Blog section -->
+	<section class="blog-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h2><span class=" text">Our </span> Blog</h2>
+				<p>There are many variatons of passages of lpsum avilable , but the majarity have suffered</p>
+			</div>
+			<div class="row">
+
+				{% for blog in blogs %}
+				<!-- blog item -->
+				<div class="col-md-4" data-aos="zoom-in-down">
+					<div class="blog-item bg-white" onclick="window.location.href = '/singlepost/{{blog.id}}/'" style="cursor: pointer;">
+						<figure class="blog-thumb" >
+							<img src="{{blog.image.url}}" alt="" class="">
+                           <div class="date-div d-flex align-center justify-content-center ">
+							{% comment %} <p class=" text-white">12 jan  </p> {% endcomment %}
+						   </div>
+						</figure>
+						<div class="blog-text">
+							<div class="post-date">{{blog.pub_data}}</div>
+							<h4 class="blog-title"><a href="">{{blog.title}}</a></h4>
+							<div class="post-meta">
+								<p>{{blog.content}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{% endfor %}
+
+			</div>
+
+			<div class=" d-flex justify-content-center mt-5 ">
+				<button class=" site-btn sb-gradients my-2 mx-lg-2" onclick="window.location.href = '/allposts/' ">See more details</button>
+			</div>
+		</div>
+	</section>
+	<!-- Blog section end -->
+
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			<div class="row spad">
+				<div class="col-md-6 col-lg-3 footer-widget">
+					<a href="/" class="site-logo">
+						<img src="/static/img/logo/Transparent algo.png" alt="" width="70vh">
+					</a>
+					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum.</p>
+					<span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+				</div>
+				<div class="col-md-6 col-lg-2 offset-lg-1 footer-widget">
+					<h5 class="widget-title">Resources</h5>
+					<ul>
+						<li><a href="/privacy/">Privacy policy</a></li>
+						<li><a href="/terms/">Term and Conditions</a></li>
+						<li><a href="/contactus/">Contact</a></li>
+						<li><a href="/questions/">FAQ</a></li>
+						<li><a href="/aboutus/">About us</a></li>
+					</ul>
+				</div>
+				
+				<div class="col-md-6 col-lg-3 footer-widget pl-lg-5 pl-3">
+					<h5 class="widget-title">Follow Us</h5>
+					<div class="social">
+						<a href="" class="facebook"><i class="fa fa-facebook"></i></a>
+						<a href="" class="google"><i class="fa fa-google-plus"></i></a>
+						<a href="" class="instagram"><i class="fa fa-instagram"></i></a>
+						<a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="row">
+					<div class="col-lg-4 store-links text-center text-lg-left pb-3 pb-lg-0">
+						<a href=""><img src="/static/img/appstore.png" alt="" class="mr-2"></a>
+						<a href=""><img src="/static/img/playstore.png" alt=""></a>
+					</div>
+					<div class="col-lg-8 text-center text-lg-right">
+						<ul class="footer-nav">
+							<li><a href="/">DPA</a></li>
+							<li><a href="/terms/">Terms of Use</a></li>
+							<li><a href="/privacy/">Privacy Policy </a></li>
+							<li><a href="">support@company.com</a></li>
+							<li><a href="">(123) 456-7890</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- {% if messages.success %} -->
+
+	<!-- {% endif %} -->
+
+
+
+
+	<!--Animate on scroll library  -->
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+			AOS.init({
+				offset: 300,
+				duration: 1200,
+				easing: 'ease',
+			});
+
+
+			
+			function submitFormone(id, planType) {
+				// Get the form element by ID
+				const form = document.getElementById("formone" + id);
+				const inputField = document.getElementById('myInputone' + id);
+        
+
+
+				// Check if the form exists
+				if (form) {
+					if(inputField){
+
+						inputField.value = planType
+
+						form.submit();
+					}
+				} else {
+					console.error('Form not found:', formId);
+				}
+    		}
+
+
+    			function submitFormtwo(id, planType) {
+				// Get the form element by ID
+				const form = document.getElementById("formtwo" + id);
+				const inputField = document.getElementById('myInputtwo' + id);
+          
+
+				// Check if the form exists
+				if (form) {
+					if(inputField){
+
+						inputField.value = planType
+
+						form.submit();
+					}
+				} else {
+					console.error('Form not found:', formId);
+				}
+    		}
+
+
+    			function submitFormthree(id, planType) {
+				// Get the form element by ID
+				const form = document.getElementById("formthree" + id);
+				const inputField = document.getElementById('myInputthree' + id);
+          
+
+				// Check if the form exists
+				if (form) {
+					if(inputField){
+
+						inputField.value = planType
+
+						form.submit();
+					}
+				} else {
+					console.error('Form not found:', formId);
+				}
+    		}
+
+
+
+
+			
+
+
+
+
+			/* this is plan */
+
+			const card = document.querySelector(".card0"),
+			tabs_basic = document.querySelector(".tab1"),
+			tabs_standard = document.querySelector(".tab2"),
+			tabs_ultimate = document.querySelector(".tab3"),
+			info = document.querySelector(".info0");
+
+			tabs_basic.onclick = (e)=>{
+				tabs_basic.classList.add("basic0");
+				tabs_standard.classList.remove("standard0");
+				tabs_ultimate.classList.remove("ultimate0");
+
+				info.classList.add("basic0");
+				info.classList.remove("standard0");
+				info.classList.remove("ultimate0");
+			}
+
+			tabs_standard.onclick = (e)=>{
+				tabs_standard.classList.add("standard0");
+				tabs_basic.classList.remove("basic0");
+				tabs_ultimate.classList.remove("ultimate0");
+
+				info.classList.remove("basic0");
+				info.classList.add("standard0");
+				info.classList.remove("ultimate0");
+			}
+
+			tabs_ultimate.onclick = (e)=>{
+				tabs_basic.classList.remove("basic0");
+				tabs_standard.classList.remove("standard0");
+				tabs_ultimate.classList.add("ultimate0"); // now this is for the tabs movement
+
+				info.classList.remove("basic0");
+				info.classList.remove("standard0");
+				info.classList.add("ultimate0"); // this is for the text movement
+			}
+
+
+
+			// this is second card
+
+
+
+			const card1 = document.querySelector(".card1"),
+			tabs_basic1 = document.querySelector(".tab4"),
+			tabs_standard1 = document.querySelector(".tab5"),
+			tabs_ultimate1 = document.querySelector(".tab6"),
+			info1 = document.querySelector(".info1");
+
+			tabs_basic1.onclick = (e)=>{
+			tabs_basic1.classList.add("basic1");
+			tabs_standard1.classList.remove("standard1");
+			tabs_ultimate1.classList.remove("ultimate1");
+
+			info1.classList.add("basic1");
+			info1.classList.remove("standard1");
+			info1.classList.remove("ultimate1");
+			}
+
+			tabs_standard1.onclick = (e)=>{
+			tabs_standard1.classList.add("standard1");
+			tabs_basic1.classList.remove("basic1");
+			tabs_ultimate1.classList.remove("ultimate1");
+
+			info1.classList.remove("basic1");
+			info1.classList.add("standard1");
+			info1.classList.remove("ultimate1");
+			}
+
+			tabs_ultimate1.onclick = (e)=>{
+			tabs_basic1.classList.remove("basic1");
+			tabs_standard1.classList.remove("standard1");
+			tabs_ultimate1.classList.add("ultimate1"); // now this is for the tabs movement
+
+			info1.classList.remove("basic1");
+			info1.classList.remove("standard1");
+			info1.classList.add("ultimate1"); // this is for the text movement
+			}
+
+
+
+			// this is 3rd card
+
+
+
+			const card2 = document.querySelector(".card2"),
+			tabs_basic2 = document.querySelector(".tab7"),
+			tabs_standard2 = document.querySelector(".tab8"),
+			tabs_ultimate2 = document.querySelector(".tab9"),
+			info2 = document.querySelector(".info2");
+
+			tabs_basic2.onclick = (e)=>{
+			tabs_basic2.classList.add("basic2");
+			tabs_standard2.classList.remove("standard2");
+			tabs_ultimate2.classList.remove("ultimate2");
+
+			info2.classList.add("basic2");
+			info2.classList.remove("standard2");
+			info2.classList.remove("ultimate2");
+			}
+
+			tabs_standard2.onclick = (e)=>{
+			tabs_standard2.classList.add("standard2");
+			tabs_basic2.classList.remove("basic2");
+			tabs_ultimate2.classList.remove("ultimate2");
+
+			info2.classList.remove("basic2");
+			info2.classList.add("standard2");
+			info2.classList.remove("ultimate2");
+			}
+
+			tabs_ultimate2.onclick = (e)=>{
+			tabs_basic2.classList.remove("basic2");
+			tabs_standard2.classList.remove("standard2");
+			tabs_ultimate2.classList.add("ultimate2"); // now this is for the tabs movement
+
+			info2.classList.remove("basic2");
+			info2.classList.remove("standard2");
+			info2.classList.add("ultimate2"); // this is for the text movement
+			}
+
+
+
+
+			function closeCards(){
+				// Get the div element by its id
+				var cookieCardDiv = document.getElementById('cookie_card');
+				
+				// Check if the div element exists
+				if (cookieCardDiv) {
+					// Remove the div element
+					cookieCardDiv.remove();
+				}
+			}
+
+
+
+
+			function removenotification(){
+				var noteDiv = document.getElementById('note');
+            
+				// Check if the note div element exists
+				if (noteDiv) {
+
+					// Remove the note div element
+					noteDiv.remove();
+				}
+			}
+
+
+
+	</script>
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %} "></script>
+	<script src="{% static 'js/owl.carousel.min.js' %} "></script>
+	<script src="{% static 'js/main.js' %} "></script>
+	<script src="https://kit.fontawesome.com/5fd4d98e50.js" crossorigin="anonymous"></script>
+
+	<script src="		https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	
+</body>
+<style>
+	
+</style>
+</html>
